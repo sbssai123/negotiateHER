@@ -1,0 +1,34 @@
+{
+  "name": "appengine-hello-world",
+  "description": "Simple Hello World Node.js sample for Google App Engine Flexible Environment.",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">=4.3.2"
+  },
+  "watch": {
+    "styles": "src/styles/*.less"
+  },
+  "scripts": {
+    "build-css": "mkdirp dist/styles && lessc src/styles/main.less > dist/styles/main.css",
+    "deploy": "gcloud app deploy",
+    "start": "npm run build-css && node app.js",
+    "watch-css": "less-watch-compiler src/styles dist/styles main.less"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "kraken-js": "^2.1.0",
+    "less": "^2.7.3",
+    "less-watch-compiler": "^1.11.0",
+    "mkdirp": "0.5.1"
+  },
+  "cloud-repo-tools": {
+    "test": {
+      "app": {
+        "msg": "Hello, world!"
+      }
+    },
+    "requiresKeyFile": true,
+    "requiresProjectId": true
+  }
+}
