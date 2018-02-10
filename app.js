@@ -17,12 +17,20 @@
 
 // [START app]
 const express = require('express');
-const kraken = require('kraken-js');
+const path = require('path');
+const http = require('http');
+const bodyParser = require('body-parser');
+
+
 
 const app = express();
-app.use(express.static('src'))
-app.use(express.static('dist'))
-app.use(kraken());
+app.use(express.static('src'));
+app.use(express.static('dist'));
+
+
+app.get('/', function(req, res){
+    res.sendFile(__dirname + '/src/views/index.html');
+});
 
 // Start the server
 const PORT = process.env.PORT || 8080;
