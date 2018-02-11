@@ -24,10 +24,21 @@ app.use(express.static('src'))
 app.use(express.static('dist'))
 app.use(kraken());
 
+app.get('/', function(req, res){
+   res.sendFile(__dirname + '/src/views/index.html');
+});
+
+app.get('/sample', function(req, res) {
+   res.sendFile(__dirname + '/src/views/Sample.html');
+});
+
 // Start the server
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
   console.log('Press Ctrl+C to quit.');
 });
+
+
+
 // [END app]
