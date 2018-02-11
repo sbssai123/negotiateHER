@@ -1,3 +1,6 @@
+//import io from 'socket-io-client';
+
+   const iosocket = io();//io.connect();
 
   const subscriptionKey = '2823454f4bf3464d891d5b4cf285445f';
   // On document load resolve the SDK dependency
@@ -173,7 +176,15 @@
 
   function UpdateRecognizedPhrase(json) {
       phraseDiv.innerHTML += json + "\n";
+
+      iosocket.emit('data_received', json);
+      //var event = new CustomEvent('data_received', json);
   }
+
+iosocket.on('news', function (data) {
+    console.log(data);
+    iosocket.emit('my other event', { my: 'data' });
+  });
 
   function OnComplete() {
       //mic.disabled = false;

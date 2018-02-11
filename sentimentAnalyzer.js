@@ -58,3 +58,5 @@ let documents = { 'documents': [
 ]};
 
 get_sentiments (documents);
+
+module.exports.get_sentiments = get_sentiments;
