@@ -1,0 +1,40 @@
+<html>
+  <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="contentarea">
+      <p>
+          This example demonstrates how to set up a media stream using your built-in webcam, fetch an image from that stream, and create a PNG using that image.
+      </p>
+      <div class="camera">
+          <video id="video">Video stream not available.</video>
+          <button id="startbutton">Take photo</button>
+      </div>
+      <canvas id="canvas">
+      </canvas>
+      <div class="output">
+          <img id="photo" alt="The screen capture will appear in this box.">
+      </div>
+      <p>
+          Visit our article <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Taking_still_photos"> Taking still photos with WebRTC</a> to learn more about the technologies used here.
+      </p>
+    </div>
+
+    <div id="wrapper" style="width:1020px; display:table;">
+    <div id="jsonOutput" style="width:600px; display:table-cell;">
+<!--         Response:
+        <br><br> -->
+        <textarea id="responseTextArea" class="UIInput" style="width:580px; height:400px;"></textarea>
+    </div>
+    <div id="imageDiv" style="width:420px; display:table-cell;">
+<!--         Source image:
+        <br><br> -->
+        <img id="sourceImage" width="400" />
+    </div>
+</div>
+
+    <script src="../js/webcam.js"></script>
+  </body>
+</html>
