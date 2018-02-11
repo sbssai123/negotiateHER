@@ -12,15 +12,16 @@
   "scripts": {
     "build-css": "mkdirp dist/styles && lessc src/styles/main.less > dist/styles/main.css",
     "deploy": "gcloud app deploy",
-    "start": "npm run build-css && node app.js",
+    "start": "npm run build-css && nodemon app.js",
     "watch-css": "less-watch-compiler src/styles dist/styles main.less"
   },
   "dependencies": {
-    "express": "^4.15.4",
+    "express": "^4.16.2",
     "kraken-js": "^2.1.0",
     "less": "^2.7.3",
     "less-watch-compiler": "^1.11.0",
-    "mkdirp": "0.5.1"
+    "mkdirp": "0.5.1",
+    "nodemon": "^1.14.12"
   },
   "cloud-repo-tools": {
     "test": {
