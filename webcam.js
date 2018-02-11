@@ -148,6 +148,8 @@
 
       var data = canvas.toDataURL('image/png');
       photo.setAttribute('src', data);
+      processImage();
+
     } else {
       clearphoto();
     }
