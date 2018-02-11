@@ -187,7 +187,36 @@ function UpdateRecognizedPhrase(json) {
 
 
 function updateAvg(score) {
-    console.log("score: ", score)
+    console.log("score: ", score);
+    document.getElementById('modal-body-score').innerHTML = "Your score is : " + score * 100 + "%";
+
+    if (score >= 0 && score <=.33) {
+        document.getElementById('modal-body-text').innerHTML = "Based on the content of your negotiation, " +
+            "you are severely lacking positivity and confidence in your argument. You may be padding your " +
+            "argument with unnecessary filler words. You should make an effort to prepare more appropriately " +
+            "and rehearse what you want to say. Know your worth!";
+    } else if (score >= .34 && score <=.50) {
+        document.getElementById('modal-body-text').innerHTML = "Your negotiation has some positive points " + "but is leaning towards being insincere. Your argument requires more rehearsal and confidence. " + "Don't back down with your argument in fear of the outcome.";
+
+    } else if (score >= 0.51 && score <= 0.7) {
+        document.getElementById('modal-body-text').innerHTML = "You are stuck in a strange middle ground. " +
+            "You appear as if you want to negotiate for a higher salary, but you also seem unsure of your decision " +
+            "to do so. Keep practicing and do your best to present yourself as best as you can. " +
+            "Do your research and practice!";
+    } else if (score >= 0.71 && score <= 0.80) {
+        document.getElementById('modal-body-text').innerHTML = "For the most part, you present yourself as " +
+            "confident and worthy, but you also appear to be underestimating your worth and/or not adequately " +
+            "rehearsing your argument. Try not to rush when you are presenting your argument!";
+    } else if (score >= 0.81 && score <= 1) {
+        document.getElementById('modal-body-text').innerHTML = " You present your argument well, " +
+            "and it is apparent that you’ve done your research and rehearsed your argument. Maintain " +
+            "your positivity and confidence throughout your negotiation, but don’t come off as arrogant.";
+
+    } else {
+        document.getElementById('modal-body-text').innerHTML = "Have you spoken to our negotiateHer? Try again!";
+
+    }
+
 }
 
 iosocket.on('avg_received', updateAvg);
@@ -198,7 +227,3 @@ function OnComplete() {
     //stopBtn.disabled = false;
 }
 
-var stopBtn = document.getElementById('stopBtn');
-stopBtn.addEventListener('click', function() {
-
-});
