@@ -35,7 +35,7 @@ app.get('/sample', function(req, res) {
 });
 
 app.get('/temp', function(req, res) {
-    res.sendFile(__dirname + '/src/views/temporary.html');
+    res.sendFile(__dirname + '/src/views/simulation.html');
 });
 
 // Start the server
