@@ -38,6 +38,10 @@ app.get('/temp', function(req, res) {
     res.sendFile(__dirname + '/src/views/simulation.html');
 });
 
+app.get('/temp', function(req, res) {
+    res.sendFile(__dirname + '/src/data/salary_gender.json');
+});
+
 // Start the server
 const PORT = process.env.PORT || 8080;
 var server = app.listen(PORT, () => {
@@ -45,28 +49,43 @@ var server = app.listen(PORT, () => {
   console.log('Press Ctrl+C to quit.');
 });
 
-
+var docs = '{"documents":[]}';
+var count = 0;
+var prev_data;
 const socketio = require('socket.io')(server);
-//let io = socketio.listen(server);
+
 const sentimentAnalyzer = require("./sentimentAnalyzer.js");
 console.log(sentimentAnalyzer);
 
 socketio.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
+
   socket.on('data_received', function(data) {
-    sentimentAnalyzer.get_sentiments(data);
-    console.log("data received");
-    console.log(data);
+      let display_text = JSON.parse(data).DisplayText;
+      if (prev_data === null || prev_data !== display_text) {
+          var jsonObj = JSON.parse(docs);
+          jsonObj["documents"].push({'id': count.toString(), 'language': 'en', 'text': display_text});
+          count++;
+          console.log('Json obj pushed: ' + jsonObj);
+          docs = JSON.stringify(jsonObj);
+          let x = sentimentAnalyzer.get_sentiments(JSON.parse(docs));
+
+      }
+
   });
 });
 
-//socketio.sockets.on('data_received', function(data) {
-//sentimentAnalyzer.get_sentiments(data);
-//console.log("data received");
-//});
+function emitAvg() {
+    socketio.emit('avg_received', prev_avg);
+}
+var prev_avg = 0;
+function updateAvg() {
+    if (prev_avg != sentimentAnalyzer.avg) {
+        prev_avg = sentimentAnalyzer.avg;
+        emitAvg();
+    }
+}
+
+var checkAvgInterval = setInterval(updateAvg, 5000)
 
 
 // [END app]

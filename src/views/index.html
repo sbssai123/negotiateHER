@@ -8,6 +8,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" type="text/css" href="../styles/styles.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
 
     <!-- fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -18,29 +20,46 @@
      <svg class="intro" viewbox="0 0 200 86">
         <text text-anchor="start" x="16" y="53" class="toshow text text-stroke" clip-path="url(#text1)" style="display:none;">NegotiateHER</text>
      </svg>
-  </div>
-  <div id="learn-more" class="row">
-     <button id="enter" href="#data-visual">
-       Learn More
-     </button>
-  </div>
-  <div id="foo-bar" class="row">
-    <span id="foo-bar-contents">heyy</span>
+     <div id="learn-more" class="row">
+        <button id="enter" href="#data-visual">
+          Learn More
+        </button>
+     </div>
   </div>
 
+  <div id="foo-bar">
+    <h2 id="foo-bar-1" class="row">
+      "Women make 78 cents to a man's dollar"
+    </h2>
+    <h2 id="foo-bar-2" class="row">
+      <div class="sm-col-3">
+        How do <b>you</b> compare to your peers?
+      </div>
+    </h2>
+  </div>
+
+  <div id="salary-form" class="form-group">
+    <label for="salary">Enter Your Salary</label>
+    <input type="salary" class="form-control" id="salary" aria-describedby="emailHelp" placeholder="Enter salary">
+    <label for= "occupation"> Select Your Type of Occupation</label>
+    <select id="occupation">
+    </select>
+    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+</div>
+
+
+
+<div id="dashboard">
+	<div class="chart">
+	</div>
+</div>
+
+<button type="submit" class="btn btn-primary mb-2">Practice Negotiating</button>
+
+
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<!--<script type="json" src="data/salary_gender.json"></script>-->
 <script src="../js/index.js"></script>
-<script>
-// Scroll to component on page
-$(document).ready(function(){
-  $("#enter").on('click', function(event) {
-      event.preventDefault();
-      $('html, body').animate({
-        scrollTop: document.body.scrollHeight
-      }, 1000);
-  });
-});
-</script>
 
 
 </body>
