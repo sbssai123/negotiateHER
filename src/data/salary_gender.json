@@ -1,0 +1,145 @@
+[
+  {
+    "AGE MIN": 20,
+    "AGE MAX": 25,
+    "Average of FEMALE HOURLY RATE": 22.92,
+    "Count of FEMALE EMPLID": 26,
+    "Average of MALE HOURLY RATE": 26.3,
+    "Count of MALE EMPLID": 63,
+    "Total Average of HOURLY RATE": 25.32,
+    "Total Count of EMPLID": 89,
+    "Female to male % rate": "87.16%"
+  },
+  {
+    "AGE MIN": 26,
+    "AGE MAX": 30,
+    "Average of FEMALE HOURLY RATE": 29.9,
+    "Count of FEMALE EMPLID": 163,
+    "Average of MALE HOURLY RATE": 31.64,
+    "Count of MALE EMPLID": 325,
+    "Total Average of HOURLY RATE": 31.06,
+    "Total Count of EMPLID": 488,
+    "Female to male % rate": "94.50%"
+  },
+  {
+    "AGE MIN": 31,
+    "AGE MAX": 35,
+    "Average of FEMALE HOURLY RATE": 31.43,
+    "Count of FEMALE EMPLID": 292,
+    "Average of MALE HOURLY RATE": 35.54,
+    "Count of MALE EMPLID": 530,
+    "Total Average of HOURLY RATE": 34.08,
+    "Total Count of EMPLID": 822,
+    "Female to male % rate": "88.43%"
+  },
+  {
+    "AGE MIN": 36,
+    "AGE MAX": 40,
+    "Average of FEMALE HOURLY RATE": 34.9,
+    "Count of FEMALE EMPLID": 376,
+    "Average of MALE HOURLY RATE": 37.1,
+    "Count of MALE EMPLID": 726,
+    "Total Average of HOURLY RATE": 36.35,
+    "Total Count of EMPLID": 1102,
+    "Female to male % rate": "94.07%"
+  },
+  {
+    "AGE MIN": 41,
+    "AGE MAX": 45,
+    "Average of FEMALE HOURLY RATE": 36.05,
+    "Count of FEMALE EMPLID": 498,
+    "Average of MALE HOURLY RATE": 39.28,
+    "Count of MALE EMPLID": 985,
+    "Total Average of HOURLY RATE": 38.19,
+    "Total Count of EMPLID": 1483,
+    "Female to male % rate": "91.78%"
+  },
+  {
+    "AGE MIN": 46,
+    "AGE MAX": 50,
+    "Average of FEMALE HOURLY RATE": 36.57,
+    "Count of FEMALE EMPLID": 576,
+    "Average of MALE HOURLY RATE": 40.38,
+    "Count of MALE EMPLID": 1028,
+    "Total Average of HOURLY RATE": 39.01,
+    "Total Count of EMPLID": 1604,
+    "Female to male % rate": "90.57%"
+  },
+  {
+    "AGE MIN": 51,
+    "AGE MAX": 55,
+    "Average of FEMALE HOURLY RATE": 37.19,
+    "Count of FEMALE EMPLID": 651,
+    "Average of MALE HOURLY RATE": 41.39,
+    "Count of MALE EMPLID": 1036,
+    "Total Average of HOURLY RATE": 39.77,
+    "Total Count of EMPLID": 1687,
+    "Female to male % rate": "89.84%"
+  },
+  {
+    "AGE MIN": 56,
+    "AGE MAX": 60,
+    "Average of FEMALE HOURLY RATE": 36.57,
+    "Count of FEMALE EMPLID": 562,
+    "Average of MALE HOURLY RATE": 40.66,
+    "Count of MALE EMPLID": 913,
+    "Total Average of HOURLY RATE": 39.1,
+    "Total Count of EMPLID": 1475,
+    "Female to male % rate": "89.92%"
+  },
+  {
+    "AGE MIN": 61,
+    "AGE MAX": 65,
+    "Average of FEMALE HOURLY RATE": 34.91,
+    "Count of FEMALE EMPLID": 369,
+    "Average of MALE HOURLY RATE": 40.67,
+    "Count of MALE EMPLID": 521,
+    "Total Average of HOURLY RATE": 38.28,
+    "Total Count of EMPLID": 890,
+    "Female to male % rate": "85.84%"
+  },
+  {
+    "AGE MIN": 66,
+    "AGE MAX": 70,
+    "Average of FEMALE HOURLY RATE": 33.09,
+    "Count of FEMALE EMPLID": 75,
+    "Average of MALE HOURLY RATE": 40.82,
+    "Count of MALE EMPLID": 131,
+    "Total Average of HOURLY RATE": 38,
+    "Total Count of EMPLID": 206,
+    "Female to male % rate": "81.05%"
+  },
+  {
+    "AGE MIN": 70,
+    "AGE MAX": 100,
+    "Average of FEMALE HOURLY RATE": 30.8,
+    "Count of FEMALE EMPLID": 11,
+    "Average of MALE HOURLY RATE": 34.52,
+    "Count of MALE EMPLID": 26,
+    "Total Average of HOURLY RATE": 33.42,
+    "Total Count of EMPLID": 37,
+    "Female to male % rate": "89.22%"
+  },
+  {
+    "AGE MIN": 0,
+    "AGE MAX": 20,
+    "Average of FEMALE HOURLY RATE": 15.76,
+    "Count of FEMALE EMPLID": 1,
+    "Average of MALE HOURLY RATE": 13.43,
+    "Count of MALE EMPLID": 1,
+    "Total Average of HOURLY RATE": 14.59,
+    "Total Count of EMPLID": 2,
+    "Female to male % rate": "117.35%"
+  },
+  {
+    "AGE MIN": "",
+    "AGE MAX": "Grand Total",
+    "Average of FEMALE HOURLY RATE": 35.35,
+    "Count of FEMALE EMPLID": 3600,
+    "Average of MALE HOURLY RATE": 39.04,
+    "Count of MALE EMPLID": 6285,
+    "Total Average of HOURLY RATE": 37.7,
+    "Total Count of EMPLID": 9885,
+    "Female to male % rate": "90.55%"
+  }
+]
