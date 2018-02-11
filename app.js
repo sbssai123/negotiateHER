@@ -20,6 +20,7 @@ const express = require('express');
 const kraken = require('kraken-js');
 var bodyParser = require('body-parser');
 
+
 const app = express();
 app.use(express.static('src'))
 app.use(express.static('dist'))
@@ -39,11 +40,33 @@ app.get('/temp', function(req, res) {
 
 // Start the server
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+var server = app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
   console.log('Press Ctrl+C to quit.');
 });
 
+
+const socketio = require('socket.io')(server);
+//let io = socketio.listen(server);
+const sentimentAnalyzer = require("./sentimentAnalyzer.js");
+console.log(sentimentAnalyzer);
+
+socketio.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
+  socket.on('data_received', function(data) {
+    sentimentAnalyzer.get_sentiments(data);
+    console.log("data received");
+    console.log(data);
+  });
+});
+
+//socketio.sockets.on('data_received', function(data) {
+//sentimentAnalyzer.get_sentiments(data);
+//console.log("data received");
+//});
 
 
 // [END app]
