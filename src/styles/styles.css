@@ -137,14 +137,15 @@ svg.intro {
 #dashboard {
   margin: 20px;
   width: 320px;
+  background: #EAF3F3;
 }
 
 p {
   text-align: center;
 }
 
-.form {
-  background: #EAF3F3;
+#salary-form {
+  background-color: #EAF3F3;
 }
 
 input {
