@@ -18,6 +18,9 @@ module.exports = function (router) {
     });
     router.get('/simulation', (req, res) => {
         res.sendFile(path.join(__dirname + '/../src/views/simulation.html'));
+    });
 
+    router.get('/webcam', (req, res) => {
+        res.sendFile(path.join(__dirname + '/../src/views/webcam.html'));
     });
 }
