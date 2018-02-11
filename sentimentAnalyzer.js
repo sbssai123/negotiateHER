@@ -52,11 +52,4 @@ let get_sentiments = function (documents) {
     req.end ();
 }
 
-let documents = { 'documents': [
-    { 'id': '1', 'language': 'en', 'text': "I'm really happy to be here." },
-    { 'id': '2', 'language': 'es', 'text': 'Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.' },
-]};
-
-get_sentiments (documents);
-
 module.exports.get_sentiments = get_sentiments;
