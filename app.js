@@ -32,6 +32,10 @@ app.get('/sample', function(req, res) {
    res.sendFile(__dirname + '/src/views/Sample.html');
 });
 
+app.get('/temp', function(req, res) {
+    res.sendFile(__dirname + '/src/views/temporary.html');
+});
+
 // Start the server
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
