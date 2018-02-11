@@ -20,6 +20,7 @@ const express = require('express');
 const kraken = require('kraken-js');
 var bodyParser = require('body-parser');
 
+
 const app = express();
 app.use(express.static('src'))
 app.use(express.static('dist'))
@@ -34,7 +35,7 @@ app.get('/sample', function(req, res) {
 });
 
 app.get('/temp', function(req, res) {
-    res.sendFile(__dirname + '/src/views/temporary.html');
+    res.sendFile(__dirname + '/src/views/simulation.html');
 });
 
 app.get('/temp', function(req, res) {
@@ -43,11 +44,48 @@ app.get('/temp', function(req, res) {
 
 // Start the server
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+var server = app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
   console.log('Press Ctrl+C to quit.');
 });
 
+var docs = '{"documents":[]}';
+var count = 0;
+var prev_data;
+const socketio = require('socket.io')(server);
+
+const sentimentAnalyzer = require("./sentimentAnalyzer.js");
+console.log(sentimentAnalyzer);
+
+socketio.on('connection', function (socket) {
+
+  socket.on('data_received', function(data) {
+      let display_text = JSON.parse(data).DisplayText;
+      if (prev_data === null || prev_data !== display_text) {
+          var jsonObj = JSON.parse(docs);
+          jsonObj["documents"].push({'id': count.toString(), 'language': 'en', 'text': display_text});
+          count++;
+          console.log('Json obj pushed: ' + jsonObj);
+          docs = JSON.stringify(jsonObj);
+          let x = sentimentAnalyzer.get_sentiments(JSON.parse(docs));
+
+      }
+
+  });
+});
+
+function emitAvg() {
+    socketio.emit('avg_received', prev_avg);
+}
+var prev_avg = 0;
+function updateAvg() {
+    if (prev_avg != sentimentAnalyzer.avg) {
+        prev_avg = sentimentAnalyzer.avg;
+        emitAvg();
+    }
+}
+
+var checkAvgInterval = setInterval(updateAvg, 5000)
 
 
 // [END app]

@@ -23,8 +23,9 @@
     "less": "^2.7.3",
     "less-watch-compiler": "^1.11.0",
     "microsoft-speech-browser-sdk": "^0.0.12",
-    "mkdirp": "0.5.1"
-
+    "mkdirp": "0.5.1",
+    "socket.io": "^2.0.4",
+    "socket.io-client": "^2.0.4"
   },
   "cloud-repo-tools": {
     "test": {
