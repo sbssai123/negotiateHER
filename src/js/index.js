@@ -44,16 +44,23 @@ $.getJSON('/data/salary_gender', function(data) {
     .data(avg_female)
       .enter()
       .append("div")
-      .style("width", function(d) { return d + 'px' })
+      .style("width", function(d) { return d * 10 + 'px' })
       .text(function(d) { return '$ ' + d; });
 
 });
 
 var $select = $('#occupation');
 $.getJSON('/data/salary_occupation', function(data) {
-  console.log(data);
 for (i = 0; i < data.length; i++) {
   var $option = '<option id="' + "occupation" + i + '">' + data[i]["OCC_TITLE"] + '</option>'
   $select.append($option);
+  const occupation_data = data;
 }
 });
+
+$("#submit-button").click(function() {
+  // Get information from input and process it based off of your salary
+  let salary_value = $("#salary").val();
+  let occupation_value = $("#occupation").val();
+
+})
