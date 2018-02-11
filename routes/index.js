@@ -9,4 +9,8 @@ module.exports = function (router) {
     router.get('/sample', (req, res) => {
         res.sendFile(path.join(__dirname + '/../src/views/Sample.html'));
     });
+
+    router.get('/webcam', (req, res) => {
+            res.sendFile(path.join(__dirname + '/../src/views/webcam.html'));
+    });
 }
