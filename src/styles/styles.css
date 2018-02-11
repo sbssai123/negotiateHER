@@ -146,6 +146,7 @@ p {
 
 #salary-form {
   background-color: #EAF3F3;
+  padding: 25px;
 }
 
 input {
@@ -157,6 +158,13 @@ input {
   margin-left: 10px;
 }
 
-#salary-form {
-  padding: 25px;
+#toSimulation {
+  margin-top: 10px;
+  margin-left: 20px;
 }
+
+#submit-button {
+  margin-left: 10px;
+}
+
+
