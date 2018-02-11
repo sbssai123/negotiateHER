@@ -18,6 +18,7 @@
 // [START app]
 const express = require('express');
 const kraken = require('kraken-js');
+var bodyParser = require('body-parser');
 
 const app = express();
 app.use(express.static('src'))
