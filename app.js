@@ -26,21 +26,21 @@ app.use(express.static('src'))
 app.use(express.static('dist'))
 app.use(kraken());
 
-app.get('/', function(req, res){
-   res.sendFile(__dirname + '/src/views/index.html');
-});
-
-app.get('/sample', function(req, res) {
-   res.sendFile(__dirname + '/src/views/Sample.html');
-});
-
-app.get('/temp', function(req, res) {
-    res.sendFile(__dirname + '/src/views/simulation.html');
-});
-
-app.get('/temp', function(req, res) {
-    res.sendFile(__dirname + '/src/data/salary_gender.json');
-});
+// app.get('/', function(req, res){
+//    res.sendFile(__dirname + '/src/views/index.html');
+// });
+//
+// app.get('/sample', function(req, res) {
+//    res.sendFile(__dirname + '/src/views/Sample.html');
+// });
+//
+// app.get('/temp', function(req, res) {
+//     res.sendFile(__dirname + '/src/views/simulation.html');
+// });
+//
+// app.get('/temp', function(req, res) {
+//     res.sendFile(__dirname + '/src/data/salary_gender.json');
+// });
 
 // Start the server
 const PORT = process.env.PORT || 8080;
