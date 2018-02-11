@@ -1,5 +1,4 @@
-(function() {
-  // The width and height of the captured photo. We will set the
+ // The width and height of the captured photo. We will set the
   // width to the value defined here, but the height will be
   // calculated based on the aspect ratio of the input stream.
 
@@ -16,14 +15,14 @@
 
   var video = null;
   var canvas = null;
-  var photo = null;
-  var startbutton = null;
+  //var photo = null;
+  //var startbutton = null;
 
   function startup() {
     video = document.getElementById('video');
     canvas = document.getElementById('canvas');
-    photo = document.getElementById('photo');
-    startbutton = document.getElementById('startbutton');
+    //photo = document.getElementById('photo');
+    //startbutton = document.getElementById('startbutton');
 
     navigator.getMedia = ( navigator.getUserMedia ||
                            navigator.webkitGetUserMedia ||
@@ -68,17 +67,18 @@
       }
     }, false);
 
+    /*
     startbutton.addEventListener('click', function(ev){
       takepicture();
       ev.preventDefault();
     }, false);
+    */
 
     clearphoto();
   }
 
   // Fill the photo with an indication that none has been
   // captured.
-
   function clearphoto() {
     var context = canvas.getContext('2d');
     context.fillStyle = "#AAA";
@@ -93,7 +93,6 @@
   // format data URL. By drawing it on an offscreen canvas and then
   // drawing that to the screen, we can change its size and/or apply
   // other changes before drawing it.
-
   function takepicture() {
     var context = canvas.getContext('2d');
     if (width && height) {
@@ -108,7 +107,8 @@
     }
   }
 
+  setTimeout(takepicture, 10000);
+
   // Set up our event listener to run the startup process
   // once loading is complete.
   window.addEventListener('load', startup, false);
-})();

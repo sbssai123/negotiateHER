@@ -37,6 +37,17 @@
     </div>
 
     <div class="container" id="content">
+        <div class="webcam"
+        <div class="camera">
+            <video id="video">Video stream not available.</video>
+        </div>
+        <div class="canvas-container">
+            <canvas id="canvas">
+            </canvas>
+        </div>
+        <div class="output">
+            <img id="photo" alt="The screen capture will appear in this box.">
+        </div>
 
         <div class="text-center">
             <div>
@@ -68,6 +79,7 @@
     <script src="../../azure-speech-web-sdk/distrib/speech.sdk.bundle.js"></script>
     <script src="../lib/socket.io.js"></script>
     <script src="../js/speechRecognizer.js"></script>
+    <script src="../js/webcam.js"></script>
 
 </body>
 </html>
