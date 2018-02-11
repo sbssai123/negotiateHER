@@ -45,28 +45,38 @@ var server = app.listen(PORT, () => {
   console.log('Press Ctrl+C to quit.');
 });
 
-
+var docs = '{"documents":[]}';
+var count = 0;
+var prev_data;
 const socketio = require('socket.io')(server);
-//let io = socketio.listen(server);
+
 const sentimentAnalyzer = require("./sentimentAnalyzer.js");
 console.log(sentimentAnalyzer);
 
 socketio.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
+
   socket.on('data_received', function(data) {
-    sentimentAnalyzer.get_sentiments(data);
-    console.log("data received");
-    console.log(data);
+      let display_text = JSON.parse(data).DisplayText;
+      if (prev_data === null || prev_data !== display_text) {
+          var jsonObj = JSON.parse(docs);
+          jsonObj["documents"].push({'id': count.toString(), 'language': 'en', 'text': display_text});
+          count++;
+          console.log(jsonObj)
+          docs = JSON.stringify(jsonObj);
+          sentimentAnalyzer.get_sentiments(JSON.parse(docs));
+      }
+
   });
+
 });
 
-//socketio.sockets.on('data_received', function(data) {
-//sentimentAnalyzer.get_sentiments(data);
-//console.log("data received");
-//});
+
+
+// socketio.sockets.on('data_received', function(data) {
+// sentimentAnalyzer.get_sentiments(data);
+// console.log("data received");
+// });
+
 
 
 // [END app]
