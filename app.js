@@ -37,6 +37,10 @@ app.get('/temp', function(req, res) {
     res.sendFile(__dirname + '/src/views/temporary.html');
 });
 
+app.get('/temp', function(req, res) {
+    res.sendFile(__dirname + '/src/data/salary_gender.json');
+});
+
 // Start the server
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

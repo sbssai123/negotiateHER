@@ -9,16 +9,11 @@ module.exports = function (router) {
     router.get('/sample', (req, res) => {
         res.sendFile(path.join(__dirname + '/../src/views/Sample.html'));
     });
+
+    router.get('/data/salary_gender', (req, res) => {
+        res.sendFile(path.join(__dirname + '/../src/data/salary_gender.json'));
+    });
+    router.get('/data/salary_occupation', (req, res) => {
+        res.sendFile(path.join(__dirname + '/../src/data/salary_occupation.json'));
+    });
 }
-
-
-
-var data = [30, 86, 168, 281, 303, 365];
-
-d3.select(".chart")
-  .selectAll("div")
-  .data(data)
-    .enter()
-    .append("div")
-    .style("width", function(d) { return d + 'px' })
-    .text(function(d) { return '$ ' + d; });
