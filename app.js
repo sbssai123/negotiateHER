@@ -61,21 +61,19 @@ socketio.on('connection', function (socket) {
           var jsonObj = JSON.parse(docs);
           jsonObj["documents"].push({'id': count.toString(), 'language': 'en', 'text': display_text});
           count++;
-          console.log(jsonObj)
+          console.log('Json obj pushed: ' + jsonObj);
           docs = JSON.stringify(jsonObj);
-          sentimentAnalyzer.get_sentiments(JSON.parse(docs));
+          let x = sentimentAnalyzer.get_sentiments(JSON.parse(docs));
+
       }
 
   });
 
+
+
 });
 
 
-
-// socketio.sockets.on('data_received', function(data) {
-// sentimentAnalyzer.get_sentiments(data);
-// console.log("data received");
-// });
 
 
 

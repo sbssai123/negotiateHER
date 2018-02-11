@@ -121,7 +121,7 @@ function RecognizerStart(SDK, recognizer) {
 
 // Stop the Recognition.
 function RecognizerStop(SDK, recognizer) {
-    // recognizer.AudioSource.Detach(audioNodeId) can be also used here. (audioNodeId is part of ListeningStartedEvent)
+    //recognizer.AudioSource.Detach(audioNodeId) //can be also used here. (audioNodeId is part of ListeningStartedEvent)
     recognizer.AudioSource.TurnOff();
 }
 
@@ -134,8 +134,8 @@ var recognizer;
 
 document.addEventListener("DOMContentLoaded", function () {
     mic = document.getElementById('mic');
-    stopBtn = document.getElementById('stopBtn');
-    phraseDiv = document.getElementById("phraseDiv");
+
+    // phraseDiv = document.getElementById("phraseDiv");
 
     mic.addEventListener('click', function () {
         if (KEY === null) {
@@ -145,12 +145,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 Setup();
             }
 
-            phraseDiv.innerHTML = "";
+            // phraseDiv.innerHTML = "";
             RecognizerStart(SDK, recognizer);
+            //stopBtn.disabled = false;
 
         }
 
     });
+
+    // stopBtn.addEventListener("click", function () {
+    //     RecognizerStop(SDK, recognizer);
+    //     stopBtn.disabled = true;
+    // });
 
     Initialize(function (speechSdk) {
         SDK = speechSdk;
@@ -170,15 +176,12 @@ function Setup() {
 
 
 function OnSpeechEndDetected() {
-    stopBtn.disabled = true;
+    //stopBtn.disabled = true;
     console.log('end detected')
 }
 
 function UpdateRecognizedPhrase(json) {
-    phraseDiv.innerHTML += json + "\n";
-    // var obj = JSON.parse(json);
-    // var x = obj.DisplayText;
-
+    //phraseDiv.innerHTML += json + "\n";
 
     iosocket.emit('data_received', json);
 
@@ -186,6 +189,11 @@ function UpdateRecognizedPhrase(json) {
 
 
 function OnComplete() {
-    //mic.disabled = false;
-    stopBtn.disabled = true;
+    console.log('complete');
+    //stopBtn.disabled = false;
 }
+
+var stopBtn = document.getElementById('stopBtn');
+stopBtn.addEventListener('click', function() {
+
+});
