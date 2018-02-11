@@ -68,13 +68,20 @@ socketio.on('connection', function (socket) {
       }
 
   });
-
-
-
 });
 
+function emitAvg() {
+    socketio.emit('avg_received', prev_avg);
+}
+var prev_avg = 0;
+function updateAvg() {
+    if (prev_avg != sentimentAnalyzer.avg) {
+        prev_avg = sentimentAnalyzer.avg;
+        emitAvg();
+    }
+}
 
-
+var checkAvgInterval = setInterval(updateAvg, 5000)
 
 
 // [END app]

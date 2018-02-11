@@ -182,10 +182,15 @@ function OnSpeechEndDetected() {
 
 function UpdateRecognizedPhrase(json) {
     //phraseDiv.innerHTML += json + "\n";
-
     iosocket.emit('data_received', json);
-
 }
+
+
+function updateAvg(score) {
+    console.log("score: ", score)
+}
+
+iosocket.on('avg_received', updateAvg);
 
 
 function OnComplete() {
