@@ -19,6 +19,9 @@ let accessKey = '360e9871fe85443bb1e86305054564b8';
 // a free trial access key, you should not need to change this region.
 let uri = 'eastus.api.cognitive.microsoft.com';
 let path = '/text/analytics/v2.0/sentiment';
+var scores = [];
+
+
 
 let response_handler = function (response) {
     let body = '';
@@ -29,10 +32,31 @@ let response_handler = function (response) {
         let body_ = JSON.parse (body);
         let body__ = JSON.stringify (body_, null, '  ');
         console.log (body__);
+
+        ////
+
+        for (var i = 0; i < body_.documents.length; i++) {
+            var counter = body_.documents[i];
+            console.log(counter.score);
+            if (i === body_.documents.length-1) {
+                scores.push(counter.score);
+            }
+
+        }
+        let sum = scores.reduce((previous, current) => current += previous);
+        var avg = sum / scores.length;
+        console.log('Average: '+ avg);
+
+        module.exports.avg = avg;
+
+
     });
+
     response.on ('error', function (e) {
         console.log ('Error: ' + e.message);
     });
+
+
 };
 
 let get_sentiments = function (documents) {
@@ -48,13 +72,12 @@ let get_sentiments = function (documents) {
     };
 
     let req = https.request (request_params, response_handler);
+
     req.write (body);
     req.end ();
+    return req;
+
+
 }
 
-let documents = { 'documents': [
-    { 'id': '1', 'language': 'en', 'text': "I'm really happy to be here." },
-    { 'id': '2', 'language': 'es', 'text': 'Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.' },
-]};
-
-get_sentiments (documents);
+module.exports.get_sentiments = get_sentiments;
