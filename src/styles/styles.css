@@ -1,3 +1,79 @@
 #mic {
     cursor: pointer;
 }
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+svg.intro {
+  background: -webkit-linear-gradient(315deg, #dc1b2e, #b01423);
+  background: linear-gradient(135deg, #dc1b2e, #b01423);
+  max-width: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  box-shadow: 0 30px 50px -20px #2e0642;
+}
+
+@-webkit-keyframes dash {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+#enter {
+  position: absolute;
+  bottom: 15px;
+  background: #fff;
+  border: none;
+  border-radius: 20px;
+  outline: none !important;
+  font-size: 11px;
+  line-height: 1.5;
+  padding: 8px 12px;
+  text-transform: uppercase;
+  z-index: 10;
+  cursor: pointer;
+  box-shadow: 0 6px 7px #350e4c;
+  -webkit-transition: all 0.1s cubic-bezier(0.67, 0.13, 0.1, 0.81);
+  transition: all 0.1s cubic-bezier(0.67, 0.13, 0.1, 0.81);
+}
+#enter:hover {
+  box-shadow: 0 4px 4px #350e4c;
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+}
+#enter:active {
+  box-shadow: 0 1px 2px #244B94;
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+}
+#enter svg {
+  vertical-align: middle;
+  position: center;
+  top: -2px;
+}
+#enter a {
+  color:black;
+  text-decoration: none;
+}
+
+.text {
+  font: 27px arial;
+  font-family: cursive;
+}
+
+.city-background {
+  background-color:black;
+  background-image: url("../img/city.jpg");
+}
