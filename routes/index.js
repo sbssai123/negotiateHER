@@ -15,6 +15,7 @@ module.exports = function (router) {
     });
     router.get('/data/salary_occupation', (req, res) => {
         res.sendFile(path.join(__dirname + '/../src/data/salary_occupation.json'));
+    });
     router.get('/simulation', (req, res) => {
         res.sendFile(path.join(__dirname + '/../src/views/simulation.html'));
 
